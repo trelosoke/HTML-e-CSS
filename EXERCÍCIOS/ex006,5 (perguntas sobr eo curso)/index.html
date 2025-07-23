@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --dark-bg: #1a1a1a;
+            --darker-bg: #121212;
+            --primary: #4285f4;
+            --primary-hover: #3367d6;
+            --correct: #4caf50;
+            --incorrect: #f44336;
+            --text: #ffffff;
+            --card-bg: #2d2d2d;
+            --option-bg: #3a3a3a;
+            --option-hover: #4a4a4a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #4285f4, #34a853);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .theme-menu {
+            background-color: var(--darker-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-menu h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .theme-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .theme-btn {
+            background-color: var(--option-bg);
+            color: var(--text);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .theme-btn.active {
+            background-color: var(--primary);
+            box-shadow: 0 0 10px rgba(66, 133, 244, 0.5);
+        }
+
+        .quiz-container {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        .quiz-container.active {
+            display: block;
+        }
+
+        .question {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .option {
+            display: flex;
+            align-items: flex-start;
+            background-color: var(--option-bg);
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option:hover {
+            background-color: var(--option-hover);
+        }
+
+        .option.correct {
+            background-color: var(--correct);
+        }
+
+        .option.incorrect {
+            background-color: var(--incorrect);
+        }
+
+        .option-letter {
+            background-color: var(--darker-bg);
+            color: var(--text);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+
+        .option.correct .option-letter,
+        .option.incorrect .option-letter {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .option-text {
+            flex-grow: 1;
+        }
+
+        .next-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 0 auto;
+            font-weight: bold;
+        }
+
+        .next-btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .progress {
+            width: 100%;
+            height: 6px;
+            background-color: var(--darker-bg);
+            border-radius: 3px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #4285f4, #34a853);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-container {
+                padding: 20px;
+            }
+            
+            .question {
+                font-size: 1.1rem;
+            }
+            
+            .option {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Quiz Tecnológico</h1>
+            <p>Teste seus conhecimentos sobre tecnologia</p>
+        </header>
+
+        <div class="theme-menu" id="themeMenu">
+            <h2>Escolha um tema</h2>
+            <div class="theme-buttons">
+                <button class="theme-btn" data-theme="internet">Surgimento e Funcionamento da Internet</button>
+            </div>
+        </div>
+
+        <div class="progress" id="progressContainer" style="display: none;">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <div class="question" id="question"></div>
+            <div class="options" id="options"></div>
+            <button class="next-btn" id="nextBtn">Próxima pergunta</button>
+        </div>
+
+        <div class="score-display" id="scoreDisplay"></div>
+    </div>
+
+    <script>
+        // Dados do quiz com alternativas mais elaboradas
+        const quizData = {
+            internet: [
+                {
+                    question: "Como se iniciou a criação da internet?",
+                    options: [
+                        "O projeto surgiu em 1972 como iniciativa conjunta entre IBM e AT&T para criar uma rede comercial de compartilhamento de dados entre filiais corporativas.",
+                        "A rede foi concebida inicialmente pela Universidade de Stanford em 1965 como plataforma acadêmica para troca de pesquisas científicas entre físicos nucleares.",
+                        "A partir da Guerra Fria, especificamente após o lançamento do satélite Sputinik pela URSS, os EUA ficaram receosos de ser uma tática de espionagem. Então, criaram a DARPA (Defense Advanced Research Projects Agency), com o objetivo de fazer pesquisas relacionadas à guerra. Uma dessas pesquisas foi a ARPANET, que é a Internet na sua primeira forma.",
+                        "A internet teve origem no projeto CYCLADES francês em 1971, que buscava criar uma rede descentralizada para comunicação entre instituições governamentais europeias.",
+                        "Foi desenvolvida pela NASA em 1968 como sistema redundante para comunicação com centros de lançamento de foguetes, após falhas em sistemas convencionais."
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Em qual ano foi criada a ARPANET?",
+                    options: [
+                        "O primeiro backbone funcional da ARPANET entrou em operação em 1971, conectando inicialmente 8 nós principais.",
+                        "Os protocolos fundamentais foram estabelecidos em 1975, mas a rede só se tornou operacional em 1978.",
+                        "Por volta do final da década de 60, marcado por alguns testes.",
+                        "A rede experimental começou em 1967, mas a versão reconhecida como ARPANET surgiu em 1973 com a adoção do NCP.",
+                        "O projeto foi concebido em 1962, porém a implementação prática ocorreu apenas em 1969 com os primeiros pacotes transmitidos."
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Qual foi o objetivo da ARPANET?",
+                    options: [
+                        "Desenvolver uma rede acadêmica para compartilhamento de recursos computacionais entre universidades parceiras do Departamento de Educação.",
+                        "Implementar um sistema de comunicação instantânea entre o Pentágono e bases militares estratégicas, substituindo sistemas telefônicos vulneráveis.",
+                        "Criar um backup de segurança dos dados de uma rede militar, assim, caso uma base fosse afetada, os dados não seriam perdidos.",
+                        "Estabelecer uma infraestrutura para transmissão de dados meteorológicos entre centros de pesquisa do governo americano.",
+                        "Prover um canal seguro para transações financeiras entre bancos associados ao Federal Reserve, após ataques a sistemas convencionais."
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Quantos pontos foram usados para o teste da ARPANET e em que Estados estadunidenses estavam localizados?",
+                    options: [
+                        "3 nós principais: Massachusetts Institute of Technology (MA), Stanford Research Institute (CA) e University of Utah (UT).",
+                        "6 centros de pesquisa: California (2), Utah, Texas, Illinois e Massachusetts, formando a primeira backbone nacional.",
+                        "4 pontos: 2 em Los Angeles (Universidade da Califórnia e Centro de Matemática), 1 em Utah (Base Militar) e 1 na Universidade de Stanford.",
+                        "5 instalações militares distribuídas estrategicamente entre Califórnia, Colorado, Virginia, Texas e Hawaii.",
+                        "2 locais experimentais: Laboratório Nacional de Los Alamos (NM) e Lawrence Radiation Laboratory (CA), para testes preliminares."
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Como esses computadores se comunicaram?",
+                    options: [
+                        "Através de um sistema proprietário desenvolvido pela IBM chamado SNA (Systems Network Architecture), adaptado para fins militares.",
+                        "Utilizando modems de 56kbps desenvolvidos pela Bell Systems, que convertiam sinais digitais em analógicos para transmissão por linhas telefônicas.",
+                        "Por serem de empresas diferentes, seus sistemas não dialogavam entre si. Foi então que um grupo da Universidade da Califórnia criou um protocolo chamado NCP (Network Control Protocol), que os fez capaz de compreender apenas uma única linguagem em comum.",
+                        "Mediante um sistema de comutação por mensagem desenvolvido pela RAND Corporation, onde dados eram armazenados e encaminhados sequencialmente.",
+                        "Usando uma versão primitiva do protocolo X.25, padrão internacional para redes de pacotes, adaptado para operar em 2400 bauds."
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Por que o primeiro teste não obteve o resultado esperado?",
+                    options: [
+                        "Devido a incompatibilidade entre os sistemas operacionais dos computadores conectados, que exigiam conversão manual de formatos de arquivo.",
+                        "Pois para apenas 2 computadores intercomunicarem-se, toda a rede deveria ser desligada.",
+                        "Por limitações na capacidade dos IMPs (Interface Message Processors) que não conseguiam rotear pacotes simultaneamente.",
+                        "Em virtude de interferências eletromagnéticas nas linhas de comunicação que corrompiam aproximadamente 40% dos pacotes transmitidos.",
+                        "Devido a restrições de hardware que limitavam as transmissões a apenas 10 minutos por sessão, tempo insuficiente para testes completos."
+                    ],
+                    correct: 1
+                },
+                {
+                    question: "O que foi feito para resolver o problema de queda de rede? Ele resolveu de forma satisfatória?",
+                    options: [
+                        "Implementou-se um sistema híbrido de comutação de circuitos e pacotes que reduziu as falhas em 70%, porém aumentou a latência em 300%.",
+                        "Desenvolveram-se roteadores redundantes que monitoravam constantemente a integridade da conexão, solução eficaz mas extremamente custosa.",
+                        "Foi criado um protocolo chamado TCP (Transfer Control Protocol), que resolveu esse problema. Porém, trouxe o problema de não reconhecer os onde estavam os pontos exatamente, pois já haviam bastante nessa época.",
+                        "Adotou-se um sistema de retransmissão automática desenvolvido pela Xerox PARC que garantia entrega de pacotes, mas reduzia a velocidade efetiva pela metade.",
+                        "Instalaram-se repetidores de sinal a cada 50 milhas que amplificavam o sinal, resolvendo 80% dos problemas mas tornando a rede menos escalável."
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Que pessoa(as) criou(aram) o TCP/IP?",
+                    options: [
+                        "Leonard Kleinrock, que desenvolveu a teoria matemática de filas de pacotes, e Lawrence Roberts, que a implementou na ARPANET.",
+                        "Donald Davies(TCP), criador do conceito de comutação de pacotes, e Paul Baran(IP), que propôs redes distribuídas para sobrevivência nuclear.",
+                        "J.C.R. Licklider(TCP), visionário da 'Rede Galáctica', e Wesley Clark(IP), designer dos IMPs originais.",
+                        "Vint Cerf (IP) e Robert 'Bob' Kahn (TCP).",
+                        "Douglas Engelbart(IP), inventor do mouse, e Ted Nelson(TCP), criador do conceito de hipertexto."
+                    ],
+                    correct: 3
+                },
+                {
+                    question: "Quando começou o desenvolvimento do TCP/IP?",
+                    options: [
+                        "O rascunho inicial foi publicado em 1972, mas a versão estável só surgiu em 1977 após extensos testes na SATNET.",
+                        "1974",
+                        "Os primeiros experimentos datam de 1971 no NPL britânico, com versão operacional em 1973 no projeto CYCLADES.",
+                        "A especificação RFC 675 foi liberada em 1975, consolidando os padrões após três anos de desenvolvimento.",
+                        "O trabalho começou efetivamente em 1976 como evolução do protocolo NCP, com adoção plena em 1979."
+                    ],
+                    correct: 1
+                },
+                {
+                    question: "Quando e com qual instituição foi a primeira comunicação por satélite da ARPANET?",
+                    options: [
+                        "Em 1975 com a Norwegian Seismic Array (NORSAR), testando transmissões transatlânticas via Intelsat IV.",
+                        "1977, com a Universidade de Londres.",
+                        "Durante exercícios da NATO em 1978, conectando centros em Oslo, Londres e Roma via satélite militar.",
+                        "No experimento de 1976 com a University College London, usando o satélite ATS-6 da NASA.",
+                        "Em 1979 com o University College Dublin, marcando a primeira conexão via satélite comercial."
+                    ],
+                    correct: 1
+                },
+                {
+                    question: "Por que a ARPANET foi separada em 3 redes distintas?",
+                    options: [
+                        "Por determinação do Congresso Americano em 1981 que proibiu uso militar de infraestrutura civil após escândalo de espionagem.",
+                        "Devido a problemas de escalabilidade que exigiam redes especializadas para diferentes classes de tráfego.",
+                        "Porque como muitos já estavam utilizando a rede, tendo até empresas, a ARPANET estava se distanciando de seu objetivo militar. Logo, foi feita essa separação.",
+                        "Para cumprir acordos internacionais que limitavam compartilhamento de tecnologia dual-use durante a Guerra Fria.",
+                        "Após ataques cibernéticos em 1980 que demonstraram vulnerabilidades em redes multipropósito."
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Qual foi o nome das redes após a separação da ARPANET e quais eram seus objetivos?",
+                    options: [
+                        "DEFNET (Defense Network) para comunicações estratégicas, SCIENT (Scientific Network) para pesquisa avançada, e COMNET (Commercial Network) para aplicações empresariais.",
+                        "MILNET (rede militar, para fins de guerra); NSFNET (fins de pesquisa, criado pela Nacional Science Foundation); ARPANET Comercial (com fim comercial, normalmente usado somente por empresas à altura).",
+                        "GOVNET para agências federais, EDUNET para instituições acadêmicas, e CORPNET para entidades privadas, seguindo diretrizes de segregação funcional.",
+                        "DODNET sob controle do Departamento de Defesa, ACADNET gerido pela NSF, e BIZNET operado por consórcio de empresas de telecom.",
+                        "SECNET com criptografia militar, RESNET para compartilhamento de supercomputadores, e TRANSNET para processamento de transações financeiras."
+                    ],
+                    correct: 1
+                },
+                {
+                    question: "De onde vem o termo 'Internet'?",
+                    options: [
+                        "Da contração de 'International Network', termo cunhado em 1975 durante conferência da ITU sobre padrões globais.",
+                        "Dos escritos de Bob Kahn e Vint Cerf, que utilizavam 'interconnected networking' e 'internetworking' para falar da conexão de diversas redes. Com a padronização do TCP/IP em 1983, o termo se populariza e abrevia para 'Internet' como uma forma mais prática.",
+                        "Deriva do latim 'inter rete' (entre redes), usado em documentos técnicos do NPL desde 1968 para descrever redes interligadas.",
+                        "Foi adotado em 1980 da marca registrada 'InterNet' da empresa Bolt Beranek and Newman, principal contratada da DARPA.",
+                        "Surgiu em 1971 no projeto francês CYCLADES como 'inter-net', referindo-se à interconexão de redes heterogêneas."
+                    ],
+                    correct: 1
+                },
+                {
+                    question: "Como a Internet é distribuída pelos países atualmente?",
+                    options: [
+                        "Predominantemente via satélites geoestacionários de alta capacidade que formam uma malha sobre os continentes.",
+                        "Através de redes metropolitanas de fibra óptica que interligam datacenters regionais, com conexões residenciais via cabo ou DSL.",
+                        "Existem diversos cabos que conectam os países pelas suas costas. Internamente, o processo é feito através dos servidores, satélites e antenas.",
+                        "Utilizando uma combinação de redes 5G para acesso móvel e feixes de rádio ponto-a-ponto para backhaul entre torres.",
+                        "Por meio da rede elétrica adaptada (PLC) que transporta dados sobre a infraestrutura existente de alta tensão."
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Como era a Internet antes do HTTP?",
+                    options: [
+                        "Baseada em terminais burros conectados a mainframes que rodavam aplicativos como correio eletrônico e transferência de arquivos via comandos específicos.",
+                        "Operava em modo texto com interfaces baseadas em menus hierárquicos, onde usuários navegavam por números ou letras em sistemas como Gopher ou WAIS.",
+                        "Não havia interface facilitada e nenhum design. Somente texto. Para realizar pesquisas, era necessário saber os códigos específicos dos protocolos de pesquisa (Gopher Protocol, por exemplo) e as ferramentas de hipertexto eram precárias. Não era utilizado mouse.",
+                        "Utilizava sistemas proprietários como o Minitel francês ou o Videotex britânico que ofereciam serviços limitados através de TVs adaptadas.",
+                        "Era composta por BBSs (Bulletin Board Systems) independentes que permitiam conexões discadas locais para troca de mensagens e arquivos."
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Quando foi criado o HTTP e quem foi seu criador?",
+                    options: [
+                        "Em 1990 por Tim Berners-Lee no CERN como parte do projeto WorldWideWeb para compartilhamento de documentos científicos.",
+                        "Marc Andreessen desenvolveu o protocolo em 1992 para o navegador Mosaic, revolucionando o acesso à informação.",
+                        "1993, por Tim Berners-Lee.",
+                        "A especificação HTTP/0.9 foi publicada em 1991 pela IETF como padrão para transferência de hipertexto entre sistemas heterogêneos.",
+                        "O protocolo surgiu em 1989 no projeto ENQUIRE do CERN, evoluindo para versão estável em 1994 com a formação do W3C."
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Qual a diferença entre World Wide Web, HTTP e HTML?",
+                    options: [
+                        "WWW é a infraestrutura física, HTTP o sistema de endereçamento e HTML o formato de codificação de conteúdo nos servidores.",
+                        "World WIde Web é um sistema da internet que permite a interação entre sites, redirecionamentos e outros recursos de forma facilitada e sem necessidade de formação. HTTP (HyperText Transfer Protocol) é o protocolo que permite a transferência de dados para o funcionamento desse sistema, montagem de sites, conexão cliente-servidor, entre outros. HTML (HyperText Markup Language) é a Linguagem que desenvolve o protocolo e por consequência, os sites e todo o sistema WWW.",
+                        "São camadas diferentes da pilha TCP/IP: HTML atua na camada de aplicação, HTTP na de transporte e WWW na de rede.",
+                        "WWW refere-se à interface gráfica, HTTP ao mecanismo de busca e HTML aos bancos de dados que armazenam o conteúdo.",
+                        "Não há diferença técnica, são três termos para o mesmo conceito em fases históricas distintas da internet."
+                    ],
+                    correct: 1
+                }
+            ]
+        };
+
+        // Elementos do DOM
+        const quizContainer = document.getElementById('quizContainer');
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.getElementById('progressContainer');
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        const themeButtons = document.querySelectorAll('.theme-btn');
+        const themeMenu = document.getElementById('themeMenu');
+
+        // Variáveis do quiz
+        let currentTheme = '';
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let questions = [];
+        let answered = false;
+
+        // Inicialização
+        function initQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            questions = [...quizData[currentTheme]];
+            shuffleArray(questions);
+            showQuestion();
+            quizContainer.classList.add('active');
+            progressContainer.style.display = 'block';
+            scoreDisplay.style.display = 'none';
+            themeMenu.style.display = 'none';
+            updateProgressBar();
+        }
+
+        // Mostra a questão atual
+        function showQuestion() {
+            answered = false;
+            const question = questions[currentQuestionIndex];
+            questionElement.textContent = question.question;
+            
+            optionsElement.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.classList.add('option');
+                optionElement.innerHTML = `
+                    <div class="option-letter">${String.fromCharCode(65 + index)}</div>
+                    <div class="option-text">${option}</div>
+                `;
+                optionElement.addEventListener('click', () => selectOption(index));
+                optionsElement.appendChild(optionElement);
+            });
+            
+            nextBtn.style.display = 'none';
+        }
+
+        // Seleciona uma opção
+        function selectOption(selectedIndex) {
+            if (answered) return;
+            
+            answered = true;
+            const question = questions[currentQuestionIndex];
+            const options = document.querySelectorAll('.option');
+            
+            options.forEach((option, index) => {
+                if (index === question.correct) {
+                    option.classList.add('correct');
+                } else if (index === selectedIndex && index !== question.correct) {
+                    option.classList.add('incorrect');
+                }
+                option.style.cursor = 'default';
+            });
+            
+            if (selectedIndex === question.correct) {
+                score++;
+            }
+            
+            nextBtn.style.display = 'block';
+        }
+
+        // Próxima questão
+        function nextQuestion() {
+            currentQuestionIndex++;
+            updateProgressBar();
+            
+            if (currentQuestionIndex < questions.length) {
+                showQuestion();
+            } else {
+                endQuiz();
+            }
+        }
+
+        // Finaliza o quiz
+        function endQuiz() {
+            quizContainer.classList.remove('active');
+            progressContainer.style.display = 'none';
+            scoreDisplay.style.display = 'block';
+            scoreDisplay.innerHTML = `
+                <h3>Quiz Concluído!</h3>
+                <p>Você acertou ${score} de ${questions.length} perguntas.</p>
+                <p>Pontuação: ${Math.round((score / questions.length) * 100)}%</p>
+                <button onclick="location.reload()" class="next-btn">Refazer Quiz</button>
+            `;
+        }
+
+        // Atualiza a barra de progresso
+        function updateProgressBar() {
+            const progress = ((currentQuestionIndex) / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Embaralha o array
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        // Event listeners
+        nextBtn.addEventListener('click', nextQuestion);
+        
+        themeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                currentTheme = button.dataset.theme;
+                initQuiz();
+            });
+        });
+
+        // Configuração inicial
+        quizContainer.classList.remove('active');
+        progressContainer.style.display = 'none';
+    </script>
+</body>
+</html>

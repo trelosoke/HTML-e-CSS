@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontes em CSS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+        body{
+            font-family: 'Work Sans' ,Arial, Helvetica, sans-serif;
+            /* 
+            Medidas absolutas 
+            cm, mm, in(polegada), px, pt, pc(paica)
+            
+            Medidas 
+            em(altura m maiusculo), ex(altura x), rem(root), vw(largura do viewport), vh, % 
+
+            Recomendado pela W3C: px & em
+            16px normalmente é igual a 1em. Tamanho normal da letra.
+            */
+            font-size: 1.3em;
+            /*
+            font-weight: normal;
+            font-style: normal;
+            text-decoration: underline;
+            lighter normal bold bolder (nem todas tem todos)*/
+        }
+        
+        
+        h1{
+            
+            /* Shorthand font
+            
+            ->font-style, font-weight, font-size, font-familly*/
+            font: italic 900 3em 'Work Sans', serif;
+        }
+
+        h2{
+            font: 900 2em Arial, Herdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trabalhando com fontes</h1>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit omnis corrupti perspiciatis possimus illo nihil consectetur nobis quia, sapiente vero excepturi fugit dolore nam facilis quisquam! Iste ducimus magnam similique? Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe tempore, nostrum repellendus ex laboriosam cumque non accusantium numquam facilis iure inventore cum dolores ipsum? Qui unde blanditiis pariatur labore modi!</p>
+    <h2>Subtítulo do exercício</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt laborum at vitae quibusdam consectetur totam cumque veniam voluptatibus reprehenderit doloribus deleniti accusantium, sint id similique officia quo soluta adipisci labore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem esse architecto dolorem excepturi minima minus suscipit magni ratione veritatis, recusandae, odit nemo ex placeat reiciendis incidunt. Autem ipsa quae vero?</p>
+</body>
+</html>

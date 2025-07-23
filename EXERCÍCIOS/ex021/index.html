@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumo de Box Model</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Modelos de caixa</h1>
+        <p>Tudo (que aprendi) sobre modelos de caixa (box model). </p>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Notícias</a>
+            <a href="#">Curiosidades</a>
+            <a href="#">Fale Conosco</a>
+        </nav>
+    </header>
+
+    <section id="sum">
+            <h2>Sumário</h2>
+            <ul>
+                <li><a href="#cap1">O que é box model?</a></li>
+                <li><a href="#cap2">Tipos de caixa</a></li>
+                <ul>
+                    <li><a href="#cap2-1">Box-level</a></li>
+                    <li><a href="#cap2-2">Inline-level</a></li>
+                </ul>
+                <li><a href="#cap3">Grouping tags</a></li>
+                <li><a href="#cap4">Box shadow</a></li>
+                <li><a href="#cap5">Border radius</a></li>
+            </ul>
+        </section>
+
+    <main>
+        <section id="cont1">
+            <article id="cap1">
+                <h1>O que é <span>box</span> (caixa) no <mark>web dev</mark>?</h1>
+                <p>Box model, ou modelo de caixa, é uma estrutura na qual todo elemento visual de um site está. É com ele que será realizada a manipulação do design da página, a partir do <em>CSS</em>. Por exemplo:</p>
+
+                    <h1 id="expl">Olá, mundo!</h1>
+                <p>No texto acima vemos um exemplo da delimitação de uma caixa, porém com o texto centralizado. Nesse exemplo:</p>
+                <ul>
+                    <li><strong><em>margin</em></strong>: para determinar a margem esquerda "<code><em>margin-left</em></code>" e direita "<code><em>margin-right</em></code>" (a fim de dar um espaço a mais das "paredes" do site) e o inferior "<code><em>margin-bottom</em></code>" (para dar um espaço entre o "<code><em>&lt;h1&gt;</em></code>" e o "<code><em>&lt;p&gt;</em></code>");</li>
+                    <li><strong><em>text-align</em></strong>: para centralizar o texto "<code><em>text-align: center;</em></code>", já que por padrão ele vem alinhado à esquerda;</li>
+                    <li><strong><em>border</em></strong>: com a finalidade de demonstrar a delimitação da "<code><em>box</em></code>" do elemento "<code><em>h1</em></code>". Essa borda faz parte internamente da "<code><em>box</em></code>" original do elemento;</li>
+                    <li><strong><em>outline</em></strong>: com o objetivo de demonstrar a possibilidade de um <em>traçado</em> e que essa <code><em>outline</em></code> é a parte mais interna da <code><em>margin</em></code> do elemento;</li>
+                    <li><strong><em>background-color</em></strong>: para demonstrar visualmente toda a àrea que a <code><em>box</em></code> desse elemento cobre.</li>
+                    <li><strong><em>width/height</em></strong>: para determinar a altura e a largura da "<code><em>box</em></code>"</li>
+                </ul>
+                <p>Caso o elemento estiver dentro de uma outra <code><em>box</em></code>, "<code><em>div</em></code>", por exemplo, a centralização se daria por <code><em>margin: auto;</em></code>.</p>
+            </article>
+            <article id="cap2">
+                <h1>Tipos de caixa</h1>
+                <h2 id="cap2-1">Box-level</h2>
+                <p>Esse tipo de caixa tem a propriedade de quebra de linha, seja de um parágrafo ou qualquer outro conteúdo do site. A caixa sempre ficará abaixo de algum outro tipo de caixa. Exemplos:</p>
+                <ul class="lst_code">
+                    <li><code><em>&lt;div&gt;</em></code></li>
+                    <li><code><em>&lt;h1&gt;...&lt;h6&gt;</em></code></li>
+                    <li><code><em>&lt;p&gt;</em></code></li>
+                    <li><code><em>&lt;header&gt;, &lt;main&gt;, &lt;footer&gt;</em></code></li>
+                    <li><code><em>&lt;section&gt;, &lt;article&gt;, &lt;aside&gt;</em></code></li>
+                    <li><code><em>&lt;nav&gt;</em></code></li>
+                    <li><code><em>&lt;form&gt;, &lt;video&gt;</em></code></li>
+                    
+                </ul>
+                <h2 id="cap2-2">Inline-level</h2>
+                <p>Já esse consiste em não haver a quebra de linha. A forma se adequa ao tamanho do conteúdo. Exemplos:</p>
+                <ul class="lst_code">
+                    <li><code><em>&lt;a&gt;</em></code></li>
+                    <li><code><em>&lt;strong&gt;, &lt;em&gt;</em></code></li>
+                    <li><code><em>&lt;sup&gt;, &lt;sub&gt;</em></code></li>
+                    <li><code><em>&lt;button&gt;, &lt;input&gt;</em></code></li>
+                    <li><code><em>&lt;select&gt;</em></code></li>
+                    <li><code><em>&lt;code&gt;</em></code></li>
+                    <li><code><em>&lt;small&gt;</em></code></li>                    
+                </ul>
+            </article>
+            <article id="cap3">
+                <h1>Grouping tags</h1>
+                <p>As <strong>grouping tags</strong> são uma forma semântica de hierarquia entre tags. Elas ajudam a não utilizar sempre "id" e "class", separando pelo significado dentro do código que aquele elemento terá.</p>
+
+                <p>Elas também influenciam no <strong>SEO</strong> (Search Engine Optimization).</p>
+
+                <h2>Exemplos:</h2>
+                <ul class="lst_code">
+                    <li><code><em>&lt;header&gt;, &lt;main&gt;, &lt;footer&gt;</em></code></li>
+                    <li><code><em>&lt;section&gt;, &lt;article&gt;, &lt;aside&gt;</em></code></li>
+                    <li><code><em>&lt;nav&gt;</em></code></li>
+                    <li><code><em>&lt;span&gt;</em></code></li>
+                </ul>
+            </article>
+            <article id="cap4">
+                <h1>Box shadow</h1>
+                <p>Para colocar sombras em "<code><em>box</em></code>", temos a declaração "<code><em>box-shadow: (height)px (width)px (blur)px (spread)px color;</em></code>".</p>
+                <ul>
+                    <li><strong><em>heigth</em></strong>: altura;</li>
+                    <li><strong><em>width</em></strong>: largura;</li>
+                    <li><strong><em>blur</em></strong>: desfoque, suavização;</li>
+                    <li><strong><em>spread</em></strong>: espalhamento.</li>
+                </ul>
+            </article>
+            <article id="cap5">
+                <h1>Border radius</h1>
+                <p>O border radius diz a respeito do arredondamento dos vértices de um "<code><em>box</em></code>". A declaração usada no código para tal é <code><em>border-radius: (top-left)px (top-right)px (bottom-right)px (bottom-left)px;</em></code>.</p>
+                <p>Caso queira bordas com mesmo raio, basta fazer somente <code><em>border-radius: (raio)px;</em></code>. Ou, caso queira fazer uma intercalação entre as diagonais, uma diagonal com 2 bordas iguais e outra com 2 bordas iguais, basta fazer <code><em>border-radius: (top-left && bottom right)px (top-right && bottom-left)px;</em></code>.</p>
+            </article>
+        </section>
+    </main>
+<footer>
+    <p>&copy;Treloso</p>
+</footer>
+</body>
+</html>

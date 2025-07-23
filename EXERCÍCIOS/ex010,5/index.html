@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão links</title>
+</head>
+<body>
+    <h1>Revisão de links.</h1>
+    <h2>Links: definição e atributos</h2>
+    <p>Acesse meu site <a href="https://youtube.com/trelosoke" target="_blank" rel="external">aqui</a>.</p>
+    <p>A tag <code>&lt;a&gt</code>; tem a função de ancorar uma palavra com um link clicável que redirecione para algum URL. Existem 3 atributos que podem ser usados na tag: "<code>href</code>" (obrigatório); "<code>target</code>" e "<code>rel</code>".</p>
+    <h3>Atributo <em>href</em></h3>
+    <p>O <em><code>href</code></em> é utilizado para colocar o caminho do link, o URL.</p>
+    <h3>Atributo <em>target</em></h3>
+    <p>Utilizado com 2 valores iniciais: <em><code>_self</code></em> e <em><code>_blank</code></em>. O <strong><code>_blank</code></strong> significando que, ao se redirecionar para um link, outra guia do navegador seria aberta e <strong><code>_self</code></strong> significando sobrepor o site atual pelo site do link clicado. Geralmente <em><code>_self</code></em> é usado para links do próprio sites (outras páginas do mesmo domínio). E <em><code>_blank</code></em> para redirecionar sites externos, sem ser do mesmo domínio. Os outros valores de <strong><code>target</code></strong> envolvem coisas mais complexas.</p>
+    <h3>Atributo <em>rel</em></h3>
+    <p>Significa o relacionamento (relationship) que o link tem com o <code>target</code>. É mais um atributo que auxilia o buscador a identificar o tipo de link que está usando, ou até fazer com que ele não recomende o link (<em><code>nofollow</code></em>), entre outros valores. Como anteriormente foi dito, a HTML5 éuma liguagem muito mais <strong>semântica</strong> e ao longo das atualizações, será cada vez mais assim. </p>
+    <p>Lista de valores de <code>rel</code>:</p>
+    <ul>
+        <li><code>noopener</code> : Impede que a nova página tenha acesso ao <code>window.opener</code>, melhorando a segurança;</li>
+        <li><code>noreferrer</code> : Não envia informações de referência da página ao destino;</li>
+        <li><code>nofollow</code> : Indica aos mecanismos de busca para não seguir esse link;</li>
+        <li><code>ugc</code> : Define que o link foi gerado por um usuário, útil para comentários e fóruns;</li>
+        <li><code>author</code> : Especifica que o link leva ao autor do documento atual;</li>
+        <li><code>alternate</code> : Indica uma versão alternativa do conteúdo, como um feed RSS;</li>
+        <li><code>bookmark</code> : Marca o link como um favorito ou referência;</li>
+        <li><code>external</code></li>
+        <li><code>help</code></li>
+        <li><code>license</code></li>
+        <li><code>prev/next</code></li>
+    </ul>
+    <h2>Exemplo de link externo</h2>
+    <p>Acesse o site ranking de maior brasileiro <a href="https://www.youtube.com/watch?v=7CnadJVkWX8" target="_blank" rel="external">aqui!</a></p>
+
+    <h2>Exemplo de link interno</h2>
+    <p>Página de notícias <a href="pag002.html" target="_self" rel="next">aqui!</a></p>
+
+    <h2>Exemplo de link interno em pasta externa</h2>
+    <p><a href="pag003/pag003.html">Clique aqui</a></p>
+
+    <h2>Exemplo link download</h2>
+    <p><a href="livro/pacote-d013.zip" download="pacote-d013.zip" type="application/zip">Clique aqui</a></p>
+</body>
+</html>

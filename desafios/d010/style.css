@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@font-face {
+    font-family: idroid;
+    src: url(fontes/idroid.otf) format(opentype);
+    font-weight: normal;
+    font-size: normal;
+}
+
+:root{
+    --tom1-cor: #d7f093;
+    --main-cor: #a6ce3a;
+    --tom2-cor: #83b302;
+    --tom3-cor: #7ba302;
+    --tom4-cor: #bbf0355b;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    margin: 0px;
+    font-family: 'Roboto Serif', 'Arial Serif', serif;
+    background-color: var(--tom1-cor);
+}
+
+a.external::after{
+    content: ' \1F517';
+}
+
+/*CABEÇALHO*/
+header{
+    background-color: var(--main-cor);
+    padding-top: 60px;
+    color: white;
+    text-align: center;
+}
+header > h1{
+    font-size: 2.6em;
+    margin: 0px 0px 20px 0px;
+    padding: 0px 10px 0px 10px;
+}
+
+header > nav{
+    text-align: left;
+    padding: 10px 10px 10px 0px;
+    margin-top: 45px;
+    background-color: #84a32e;
+}
+
+header nav a{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition-duration: 0.1s;
+}
+
+header nav a:hover{
+    color: #334600;
+    background-color: var(--main-cor);
+}
+
+header nav a:active{
+    color: rgb(201, 201, 201);
+}
+
+header > div {
+    margin: 0px 0px 20px 0px;
+    padding: 0px 10px 0px 10px;
+}
+
+/*PRINCIPAL*/
+
+main p{
+    margin: 16px;
+    font-size: 1.1em;
+    padding-bottom: 10px;
+    text-indent: 4em;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+main strong{
+    color: var(--tom3-cor);
+    font-weight: bold;
+
+}
+
+img{
+    display: block;
+    margin: auto;
+    width: 100%;
+}
+
+img.small{
+    max-width: 320px;
+    display: block;
+    margin: auto;
+}
+
+
+main{
+    min-width: 300px;
+    max-width: 1000px;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.466);
+    margin-bottom: 20px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+main a{
+    color: var(--tom3-cor);
+}
+
+main a:hover{
+    color: #5a7900;
+}
+
+main a:active{
+    color: #4a6301;
+}
+
+main > section#hist > article > h1{
+    margin: 0px 16px 0px 16px;
+    padding: 25px 0px 10px 0px;
+    font: normal 2.2em idroid, Arial, sans-serif;
+    color: var(--tom2-cor);
+}
+
+main > section#hist > article > h2{
+    display: inline-block;
+    margin: 0px 16px 10px 16px;
+    padding: 5px 20px 5px 20px;
+    font: normal 1.8em idroid, Arial, sans-serif;
+    color: var(--tom3-cor);
+    background-color: #bbf0355b;
+}
+
+
+div.vid{
+    background-color: #5e7a12;
+    margin: 0px -16px 0px -16px;
+    padding: 25px;
+    padding-bottom: 55.6%;
+    position: relative;
+}
+
+div.vid > iframe{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+aside{
+    margin: 34px 16px 0px 16px;
+    background-color: var(--tom1-cor);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+aside > ul{
+    list-style-position: inside;
+    columns: 2;
+    
+}
+
+aside > h3{
+    background-color: #5e7a12;
+    color: white;
+    margin: -10px -10px 0px -10px;
+    padding: 8px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+
+/*PÉ, RODAPÉ*/
+
+footer{
+    background-color: #7da510;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.1em;
+}
