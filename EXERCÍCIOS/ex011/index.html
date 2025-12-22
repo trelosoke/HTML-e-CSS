@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mídias em HTML5</title>
+    <title>Mídias em HTML</title>
 </head>
 <body>
     <h1>Imagem dinâmica</h1>
-    <p>
-        Tente abrir esse site em vários dispositivos diferentes ou simplesmente aumente ou diminua a borda da janela do navegador.
-    </p>
-    
     <picture>
-        <source media="(max-width: 708px)" srcset="imagens/foto-p.png" type="image/png">
-        <source media="(max-width: 1023px)" srcset="imagens/foto-m.png" type="image/png">
-        <img src="imagens/foto-g.png" alt="Imagem grande">
+        <source media="(max-width: 720px)" srcset="imagens/foto-p.png" type="image/png">
+        <source media="(max-width: 1020px)" srcset="imagens/foto-m.png" type="image/png">
+        <img src="imagens/foto-g.png" alt="Imagem flexível">
     </picture>
 
-    <h1>Reproduzindo áudio</h1>
-    <p>Vamos aprender a reproduzir áudios em HTML5.</p>
-    <audio preload="metadata" autoplay controls loop>
-        <source src="midia/future.mp3" type="audio/mp3">
-        <source src="midia/future.ogg" type="audio/ogg">
-        <source src="midia/future.wav" type="audio/wav"> 
-        <p>Infelizmente seu navegador não conhegue reproduzir áudio. <a href="midia/future.mp3">Clique aqui</a> para baixar o áudio</p>
+    <h1>Reproduzindo áudios</h1>
+    <audio preload="metadata" controls>  <!--MP3 OGG WAV-->
+        <source src="midia/guanacast-33.mp3" type="audio/mpeg">
+        <!--Importante adicionar os três tipos de extensão do mesmo áudio, para compatibilidade total com todos os navegadores-->
+        <!--Evitar mais WAV, pois é muito pesado-->
+        <p>Infelizmente seu navegador não é compatível com a extensão do áudio. Por favor, faça o download <a href="midia/guanacast-33.mp3" download="guanacast-33.mp3">aqui</a>.</p>
     </audio>
-    <!--MP3 WAV OGG-->
+
+    
 </body>
 </html>
