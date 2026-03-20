@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+body {
+    text-align: center;
+    background-color: rgb(29, 29, 29);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    width: 20%;
+}
+
+.cursoCompTxt {
+    text-decoration: none;
+    color: white;
+    font: 600 1.3em "Times New Roman", serif;
+    transition: 0.1s;
+}
+
+.backImg {
+    width: 37px;
+    transition: 0.1s;
+}
+
+.video-block {
+    transition: 0.2s;
+}
+
+.cursoCompTxt, .backImg, .video-block {
+    transition: filter 0.2s ease-in-out;
+}
+
+.cursoCompTxt:hover,
+.backImg:hover,
+.video-block:hover {
+    filter: brightness(0.5);
+    cursor: pointer;
+}

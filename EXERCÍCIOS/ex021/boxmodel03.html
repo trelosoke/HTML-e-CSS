@@ -6,10 +6,14 @@
     <title>Borda personalizada</title>
     <style>
         h1 {
-            border: 20px solid transparent;
+            border: 20px solid transparent; /* 'transparent' para caso o navegador não suporte com cores*/
             padding: 10px;
 
             border-image: url(borda.png) 37 repeat;
+            /*
+            border-image-slice: 37;
+            border-image-repeat: repeat;
+            */
         }
     </style>
 </head>
