@@ -1,0 +1,235 @@
+@charset "UTF-8";
+/* 
+#c5ebd6
+#83e1ad
+#3ddc84
+#2fa866
+#1a5c37
+#063d1e
+*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+    font-family: "Idroid";
+    src: url('fontes/idroid.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+    --lighterGreen: #c5ebd6;
+    --lightGreen1: #83e1ad;
+    --lightGreen2: #3ddc84;
+    --normalGreen: #2fa866;
+    --darkGreen: #1a5c37;
+    --darkerGreen: #063d1e;
+
+    --hightlightFont: 'Bebas Neue', sans-serif;
+    --standartFont: Arial, Helvetica, Verdana, sans-serif;
+    --androidFont: 'Idroid', sans-serif;
+}
+
+body {
+    background-color: var(--lighterGreen);
+}
+
+header {
+    background-image: linear-gradient(to bottom, var(--lightGreen2), var(--darkGreen));
+
+    padding: 45px 0px 0px 0px;
+    background-color: var(--normalGreen);
+
+    min-height: 150px;
+}
+
+header h1 {
+    color: white;
+    font: normal 3.5em var(--hightlightFont);
+    text-align: center;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.293);
+
+    margin: 0px 0px 10px 0px;
+    padding: 0px 10px 0px 10px;
+}
+
+header p {
+    font-size: 1.1em;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.293);
+
+    padding: 0px 10px 0px 10px;
+}
+
+nav {
+    background-color: var(--darkGreen);
+    padding: 10px 5px 10px 0px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px 10px 10px;
+    margin: 0px;
+
+    transition: 0.2s ease-out;
+    cursor: pointer;
+}
+
+nav a:hover {
+    color: var(--darkGreen);
+    background-color: var(--lightGreen2);
+}
+
+main {
+    background-color: white;
+
+    padding: 20px;
+    border-radius: 0px 0px 16px 16px;
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.293);
+
+    min-width: 300px;
+    max-width: 1000px;
+
+    margin: auto auto 20px auto;
+}
+
+main h1 {
+    color: var(--darkGreen);
+    font: normal 1.9em var(--androidFont);
+}
+
+main h2 {
+    font: normal 1.6em var(--androidFont);
+    color: var(--normalGreen);
+
+    background-image: linear-gradient(to right, var(--lighterGreen), transparent);
+    border-radius: 6px;
+    padding-left: 5px;
+}
+
+main h3 {
+    font: normal 1.2em var(--standartFont);
+    color: white;
+    background-color: var(--darkGreen);
+
+    margin: -10px -10px 0px -10px;
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px;
+}
+
+main p {
+    font: normal 1.2em/1.5 var(--standartFont);
+    text-indent: 4em;
+    text-align: justify;
+
+    margin: 16px 0px 16px 0px;
+}
+
+main strong {
+    color: var(--darkGreen);
+    font-weight: bold;
+
+    padding: 1px;
+}
+
+main a {
+    color: var(--darkGreen);
+    font-weight: bold;
+    text-decoration: none;
+
+    border-radius: 4px;
+    background-color: color-mix(in srgb, var(--lightGreen1), transparent 50%);
+    padding: 1px;
+
+}
+
+.external::after {
+    content: '\1F517';
+}
+
+main a:hover {
+    text-decoration: underline;
+    color: var(--normalGreen);
+}
+
+main img {
+    width: 100%;
+}
+
+.bugDroids {
+    display: block;
+    max-width: 300px;
+    margin: auto;
+}
+
+.ytVideo {
+    background-color: var(--darkGreen);
+    margin: 0px -20px 30px -20px;
+    padding: 30px 20px 30px 20px;
+    padding-bottom: 50%;
+    position: relative;
+}
+
+.ytVideo iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+main aside {
+    background-color: var(--lightGreen1);
+    padding: 10px;
+    border-radius: 10px;
+
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.438);
+}
+
+aside ul {
+    list-style-type: '\2714\0020';
+    list-style-position: inside;
+    columns: 2;
+}
+
+aside p{
+    font-size: 1em;
+}
+
+aside a {
+    background-color: var(--lighterGreen);
+    color: var(--normalGreen);
+}
+
+aside a:hover {
+    color: var(--darkGreen);
+}
+
+footer {
+    background-color: var(--darkerGreen);
+    color: white;
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+footer p {
+    margin: 0px;
+    text-align: center;
+}
+
+footer a {
+    color: var(--lightGreen1);
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--normalGreen);
+    text-decoration: underline;
+}
