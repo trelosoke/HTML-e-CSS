@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS position: absolute</title>
+    <style>
+
+        /* 
+        Propriedades para manipulação do position:
+
+        top
+        left
+        bottom
+        right
+        z-index
+        */
+
+        .parent {
+            padding: 30px;
+            width: 500px;
+            background-color: #0b0c11;
+            color: white;
+
+            position: relative;
+        }
+
+        .child {
+            padding: 20px;
+            background-color: #0071ff;
+            color: white;
+
+            top: 0;
+            right: 0;
+
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <h2>Parent Element</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nemo, veniam hic veritatis neque, tempore dolor mollitia dolorum placeat iusto itaque perferendis est iure ullam corrupti voluptates inventore, adipisci ducimus?</p>
+
+        <div class="child">
+            <h2>Child Element</h2>
+        </div>
+    </div>
+    <h1>Exemplo de uso de position absolute</h1>
+    <p>Necessita de outro elemento com position (geralmente relative, para já que o elemento permanece onde está), caso contrário, ele agirá de acordo com a tela, não com o elemento. O absolute fica com o elemento que eu quero que fique dentro de outro, que aja em relação a ele.</p>
+
+    <p>Por exemplo: o <strong><code>top: 0;</code></strong> e <strong><code>right: 0;</code></strong> no child element está fazendo isso em relação ao parent element.</p>
+
+    <p>Importante notar que os elementos absolutos vão sempre estár acima dos elementos do site, a não ser que haja uma forma de mudar isso...</p>
+
+    <h1>Exemplo</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati labore corporis debitis, dicta voluptatem deleniti ab recusandae ad quisquam voluptate aliquid modi atque dolorem eaque mollitia rem inventore? Eaque, ratione. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente molestiae quisquam pariatur nam ipsa veniam saepe eos explicabo minima! Quod fugit iure aspernatur eos obcaecati quia incidunt dolores, maiores cum.</p>
+
+    <div class="exm"><h1>Example element</h1></div>
+
+    <h1>Exemplo</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati labore corporis debitis, dicta voluptatem deleniti ab recusandae ad quisquam voluptate aliquid modi atque dolorem eaque mollitia rem inventore? Eaque, ratione. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente molestiae quisquam pariatur nam ipsa veniam saepe eos explicabo minima! Quod fugit iure aspernatur eos obcaecati quia incidunt dolores, maiores cum.</p>
+
+    <h1>Exemplo</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati labore corporis debitis, dicta voluptatem deleniti ab recusandae ad quisquam voluptate aliquid modi atque dolorem eaque mollitia rem inventore? Eaque, ratione. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente molestiae quisquam pariatur nam ipsa veniam saepe eos explicabo minima! Quod fugit iure aspernatur eos obcaecati quia incidunt dolores, maiores cum.</p>
+
+    <h1>Exemplo</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati labore corporis debitis, dicta voluptatem deleniti ab recusandae ad quisquam voluptate aliquid modi atque dolorem eaque mollitia rem inventore? Eaque, ratione. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente molestiae quisquam pariatur nam ipsa veniam saepe eos explicabo minima! Quod fugit iure aspernatur eos obcaecati quia incidunt dolores, maiores cum.</p>
+
+    <h1>Exemplo</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati labore corporis debitis, dicta voluptatem deleniti ab recusandae ad quisquam voluptate aliquid modi atque dolorem eaque mollitia rem inventore? Eaque, ratione. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente molestiae quisquam pariatur nam ipsa veniam saepe eos explicabo minima! Quod fugit iure aspernatur eos obcaecati quia incidunt dolores, maiores cum.</p>
+
+    <h1>Exemplo</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati labore corporis debitis, dicta voluptatem deleniti ab recusandae ad quisquam voluptate aliquid modi atque dolorem eaque mollitia rem inventore? Eaque, ratione. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente molestiae quisquam pariatur nam ipsa veniam saepe eos explicabo minima! Quod fugit iure aspernatur eos obcaecati quia incidunt dolores, maiores cum.</p>
+
+    <h1>Exemplo</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati labore corporis debitis, dicta voluptatem deleniti ab recusandae ad quisquam voluptate aliquid modi atque dolorem eaque mollitia rem inventore? Eaque, ratione. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente molestiae quisquam pariatur nam ipsa veniam saepe eos explicabo minima! Quod fugit iure aspernatur eos obcaecati quia incidunt dolores, maiores cum.</p>
+</body>
+</html>
