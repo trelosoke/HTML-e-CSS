@@ -14,20 +14,24 @@
             border-collapse: collapse;
         }
 
+        caption {
+            border: solid 1px black;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 10px;
+            background-color: lightgray;
+        }
+
         td, th {
             border: solid 1px black;
             padding: 10px;
         }
 
         thead, tfoot {
-            background-color: rgb(185, 185, 185);
+            background-color: gray;
         }
 
-        caption {
-            border: solid 1px black;
-            font-size: 1.2em;
-            font-weight: bold;
-            padding: 10px;
+        tbody tr:nth-child(even) {
             background-color: lightgray;
         }
     </style>
