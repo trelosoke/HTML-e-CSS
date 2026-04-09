@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe: surffing</title>
+</head>
+<body>
+    <h1>Navegação dentro do iframe</h1>
+    <p>É possível que o iframe tenha seu "alvo" de site mudado através de links:</p>
+
+    <a href="00_siteTeste1.html" target="frame">Site 1 no iframe</a>
+    <a href="00_siteTeste2.html" target="frame">Site 2 no iframe</a>
+    
+    <iframe src="" name="frame"></iframe>
+
+    <p>Para que o código acima funciona, um atributo <code><em>name</em></code> no iframe deve ser colocada. Pode ser qualquer nome: <code><em>name="frame"</em></code>. Para conectar os links para o iframe, devemos colocar no <code><em>target</em></code> desses links o nome que colocamos no iframe: <code><em>target="frame"</em></code>. Ao clicar em um dos links, a página é carregada diretamente no iframe.</p>
+
+    <p>Aqui está como o código do exemplo acima está estruturado:</p>
+
+    <pre><code>
+    &lt;a href="00_siteTeste1.html" target="frame">Site 1 no iframe&lt;/a&gt;
+    &lt;a href="00_siteTeste2.html" target="frame">Site 2 no iframe&lt;/a&gt;
+
+    &lt;iframe src="" name="frame"&gt;&lt;/iframe&gt;
+    </code></pre>
+</body>
+</html>
