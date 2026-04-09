@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframes: base</title>
+</head>
+<body>
+    <h1>O que é um <code><em>iframe</em></code>?</h1>
+    <p>
+        Um <code><strong><em>iframe</em></strong></code> ou "<strong><em>inline frame</em></strong>" é uma tag HTML que permite a inserção de páginas dentro de um bloco em um site, como no exemplo:
+        
+        <iframe src="https://cursoemvideo.com" frameborder="0"></iframe>
+    </p>
+
+    <p>Nele pode haver algum texto dentro (com parágrafo, ou até um link) que aparecerá caso o iframe não funciona/não apareça.</p>
+
+<pre><code><p>
+    &lt;iframe src="https://cursoemvideo.com" frameborder="0"&gt;
+        &lt;p&gt;
+            Texto aqui. Seu iframe não apareceu.
+            &lt;a href="https://cursoemvideo.com" target="_blank"&gt;link do iframe&lt;/a&gt;
+        &lt;/p&gt;
+    &lt;/iframe&gt;
+</p></code></pre>
+
+    <p>Ele tem dois atributos básicos chamados <code><em>src(source)</em></code>, que determina qual página será exibida, e <code><em>frameborder</em></code>, que aceita "0" como não tendo borda e qualquer outro valor acima de 0 como tendo borda.</p>
+
+    <h2>Permissão</h2>
+    <p>Muitos sites não permitem adicioná-los como iframe (ao menos não de cara), como o Google. Isso porque os iframes tem um problema de segurança, o que poderia causar Clickjacking (colocar um iframe invisível para um outro site para "sequestrar" seu clique, podendo ser para excluir conta ou alterar senha). Também por problemas de layout, já que um site complexo como o Google não foi feito para rodar em janelas pequenas e limitadas de terceiros. </p>
+</body>
+</html>
