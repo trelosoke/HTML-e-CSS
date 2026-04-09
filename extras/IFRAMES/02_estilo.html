@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframes: estilo</title>
+    <style>
+        body {
+            font-size: 1.4em;
+        }
+
+        iframe {
+            width: 350px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Estilos em um iframe</h1>
+    
+    <iframe src="https://cursoemvideo.com" frameborder="0"></iframe>
+
+    <h2>Tamanho</h2>
+    <p>O tamanho padrão do iframe é de 300 píxeis de largura por 150 de altura. Porém, isso pode ser mudado no "inline" do iframe pelos atributos <code><em>height</em></code> e <code><em>width</em></code>.</p>
+
+    <p>Também é possível fazer isso dentro das CSS da página, o que substitui qualquer altura colocada no "inline" do iframe</p>
+
+    <pre><code>
+    iframe {
+        width: 350px;
+        height: 200px;
+    }
+    </code></pre>
+</body>
+
+    <h2>Rolagem</h2>
+    <p>É possível configurar como a rolagem do iframe funcionará através do atributo <code><em>scrolling</em></code>(<strong>OBSOLETO</strong>). Há 3 configurações possíveis:</p>
+
+    <ul type="disc">
+        <li><code>scrolling="auto"</code></li>
+        <ul><p>Possibilita que o próprio atributo determine o que seja melhor (geralmente escolher ter rolagem quando o site é verticalmente maior do que a altura do iframe).</p></ul>
+
+        <li><code>scrolling="yes"</code></li>
+        <ul><p>Adiciona barra de rolagem, geralmente. Pode não funcionar.</p></ul>
+
+        <li>scrolling="no"</li>
+        <ul><p>Remove barra de rolagem.</p></ul>
+    </ul>
+    
+    <p>Muito importante mencionar que essa forma está obsoleta. O melhor modo de fazer isso é utilizando as CSS, com a propriedade <code><em>overflow</em></code>, mas isso mais para frente.</p>
+</html>
