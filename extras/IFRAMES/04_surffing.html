@@ -24,5 +24,38 @@
 
     &lt;iframe src="" name="frame"&gt;&lt;/iframe&gt;
     </code></pre>
+
+    <h2>HTML interno no iframe</h2>
+    <p>Há também a possibilidade de deixar um código HTML dentro do iframe por padrão, antes de carregar qualquer site, através do atributo <code><em>srcdoc</em></code>:</p>
+
+    <a href="00_siteTeste1.html" target="frame2">Site 1 no iframe</a>
+    <a href="00_siteTeste2.html" target="frame2">Site 2 no iframe</a>
+    
+    <iframe src="" name="frame2" 
+        srcdoc="
+            <h1>Teste</h1>
+            <p>Olá</p>
+        ">
+    </iframe>
+
+    <p>O exemplo acima tem esse código:</p>
+
+    <pre><code>
+    &lt;iframe src="" name="frame2" srcdoc="&lt;h1&gt;Teste&lt;/h1&gt;&lt;p&gt;Olá&lt;/p&gt;">
+    &lt;/iframe&gt;
+    </code></pre>
+
+    <p>Que é uma forma extremamente não recomendada, pois é muito pouco legível. Mas dá para melhorar a formatação:</p>
+
+    <pre><code>
+    &lt;iframe src="" name="frame2" 
+        srcdoc="
+            &lt;h1&gt;Teste&lt;/h1&gt;
+            &lt;p&gt;Olá&lt;/p&gt;
+        ">
+    &lt;/iframe&gt;
+    </code></pre>
+
+    <p><strong>Nota:</strong> para qualquer elemento que necessite de aspas dentro do <code><em>srcdoc</em></code>, deve-se utilizar as aspas simples (''), pois as aspas duplas já estarão antes e depois desse código interno.</p>
 </body>
 </html>
