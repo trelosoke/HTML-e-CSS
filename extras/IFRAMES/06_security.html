@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe: segurança</title>
+    <style>
+        body {
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Segurança em iframes</h1>
+    <p>Aqui está um exemplo de um formulário que passa informações ao servidor:</p>
+    
+    <iframe src="00_exemploForm.html" frameborder="1"></iframe>
+
+    <p>O formulário acima é um iframe que referencia outra página com esse formulário. Os sites no iframe do seu site podem capturar informações dos usuário e outros tipos de ataque.</p>
+
+    <h2><code><em>sandbox</em></code></h2>
+    <p>Para fazer o bloqueio disso, temos um atributo no iframe chamado <code><em>sandbox</em></code>:</p>
+
+    <pre><code>
+    &lt;iframe src="00_exemploForm.html" sandbox="sandbox">&gt;&lt;/iframe&gt;
+    </code></pre>
+
+    <p>O <code><em>sandbox="sandbox"</em></code> bloqueia qualquer tipo de informação passada.</p>
+
+    <p>Porém, obviamente, haverá casos que precisamos enviar essas informações. Podemos fazer isso com mais segurança habilitando algumas permissões dentro do <code><em>sandbox</em></code>:</p>
+
+    <ul>
+        <li><code><em>sandbox="allow-same-origin"</em></code>:</li>
+        <ul><p>Caso o site seja da mesma origem (mesmo servidor do site que está utilizando o iframe). Isso permite acesso ao seus cookies, LocalStorage e outras APIs.</p></ul>
+
+        <li><code><em>sandbox="allow-forms"</em></code>:</li>
+        <ul><p>Permite formulários no iframe.</p></ul>
+
+        <li><code><em>sandbox="allow-scripts"</em></code>:</li>
+        <ul><p>Permite que scripts (JavaScript) rodem.</p></ul>
+        
+        <li><code><em>entre outros</em></code>.</li>
+    </ul>
+
+    <h3>COMBINAÇÃO PERIGOSA</h3>
+    <p>Ao utilizar os valores <code><em>allow-scripts</em></code> e <code><em>allow-same-origin</em></code> <strong>ao mesmo tempo</strong> em um site que é de seu próprio domínio (o que faz sentido quando utiliza-se o same origin), isso dá basicamente total acesso aos dados internos do seu site.</p>
+
+    <p>Um invasor, ao injetar um script malicioso, consegue acessar o objeto <code><em>window.parent</em></code> (por causa do <code><em>allow-same-origin</em></code>), permitindo que o iframe:</p>
+
+    <ul>
+        <li>leia o que um usuário está digitando em campos de texto do site principal;</li>
+        <li>altere botões ou links do seu site original para qualquer outro fim;</li>
+        <li>capture tokens (chaves de identificação de usuário) de autentificação que estejam na página pai.</li>
+    </ul>
+
+    <p>Com esses dois acessos, o script também pode ter acesso aos cookies do seu site através do <code><em>document.cookie</em></code> e enviar todos eles para um servidor do invasor.</p>
+
+
+    <p>O mais irônico é que, com essas permissões, o script pode <strong>retirar</strong> o atributo <code><em>sandbox</em></code> do seu iframe, ganhando controle total.</p>
+
+    <iframe src="00_ex_rouboScript.html" height="200" sandbox="allow-same-origin allow-scripts"></iframe>
+
+    <h2><code><em>referrerpolicy</em></code></h2>
+    <p>Também temos um outro atributo chamado <code><em>referrerpolicy</em></code>, que com valor <code><em>no-referrer</em></code> impede que o site dentro do iframe saiba a origem (referência) do site que o está utilizando (o seu site, por exemplo). Isso acaba também por permitir que o <code><em>window.opener</em></code> (objeto do JavaScript que permite acesso parcial à sua página) rode.</p>
+</body>
+</html>
