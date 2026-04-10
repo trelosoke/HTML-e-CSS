@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframes: problemas</title>
+    <style>
+
+        body {
+            text-align: justify;
+            font-size: 1.1em;
+        }
+        
+        ul {
+            line-height: 1.3em;
+        }
+
+        li {
+            margin-bottom: 0.7em;
+        }
+    </style>
+</head>
+<body>
+    <h1>SEO em iframes</h1>
+    <p>Há alguns problemas que o GoogleBot (bot do google que faz parte do SEO) tem para acessar o conteúdo dentro dos iframes:</p>
+    
+    <ul>
+        <li>ele não trata o iframe como um conteúdo do site, mas simplesmente uma "janela" para outra;</li>
+        <li>se houver um conteúdo importante dentro do iframe, o Google pode indexar a URL da fonte do iframe isoladamente, o que desemboca no bot podendo mostrar o conteúdo "nu" do iframe nas pesquisas, sem o restante do site;</li>
+        <li>navegar dentro de um iframe pode ser um processo bem demorado, pois necessita de uma nova requisição HTTP. Como o bot tem algo chamado "<strong><em>Crawl Budget</em></strong>(Orçamento de Rastreamento)", caso haja muitos iframes assim, o bot pode ignorar algumas informações para economizar recursos;</li>
+    </ul>
+
+    <h2>Problemas de navegação</h2>
+    <p>Os navegadores podem se confundir se o usuário está navegando na página principal ou no iframe, como voltar uma página ou usar um <code><em>target="_blank"</em></code>. Nesses casos, podemos utilizar um <code><em>target="_parent"</em></code> ou <code><em>_top</em></code>, que força a carregar na página principal, mas ainda sim há confusão nas ações feitas na página e no iframe.</p>
+
+    <p>O site, dependendo das proporções do iframe e da responsividade do site, pode não caber dentro dele, o tornando ilegível.</p>
+
+    <p>As URLs copiadas dentro de uma página no iframe estarão associadas à sua página principal, e não ao link copiado.</p>
+</body>
+</html>
