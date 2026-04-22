@@ -40,7 +40,27 @@ main {
     top: 80px;
     left: 22px;
 
-    width: 268px;
+    width: 269px;
     height: 471px;
 
+}
+
+#social-media  {
+    text-align: right;
+}
+
+#social-media img {
+    width: 50px;
+    margin: 10px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.306);
+    box-sizing: border-box;
+
+    transition: translate 0.1s ease-in-out, box-shadow 0.15s ease-in, outline 0.06s ease-out;
+}
+
+#social-media img:hover {
+    outline: 2px solid white;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.450);
+    translate: -3px -3px;
 }
