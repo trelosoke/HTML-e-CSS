@@ -12,7 +12,7 @@
 </head>
 <body>
     <h1>Meu primeiro formulário</h1>
-    <form action="cadastro.php" autocomplete="off">
+    <form action="cadastro.php" method="POST" autocomplete="off">
         <p><label for="idnome">Nome:</label> 
             <input type="text" name="nome" id="idnome"></p>
         <p><label for="idsobrenome">Sobrenome:</label> 
@@ -21,5 +21,10 @@
     </form>
 
     <p>Em inputs, o "name" é mais útil para HTML e PHP, já o "id" é mais para JavaScript.</p>
+
+    <p>Método GET: dados não sensíveis. Até 3 mil bytes de dados (3000 letras). Sem envio de arquivos. Os dados vão a URL.</p>
+    <p>Método POST: dados sensíveis. Carecem de segurança. Mais de 3 mil bytes. Envio de arquivos. ESTUDAR HTTP E HTTPS. Os dados vão "escondidos" no corpo da requisição do http.</p>
+
+    <p>Atualmente, os métodos GET e POST não têm diferença significativa de velocidade.</p>
 </body>
 </html>
