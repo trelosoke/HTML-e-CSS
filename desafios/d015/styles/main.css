@@ -55,3 +55,20 @@ main {
     display: block;
     padding: 10px;
 }
+
+@media screen and (min-width: 768px) {
+    #login {
+        width: 80%;
+    }
+
+    #image {
+        float: left;
+        height: 100%;
+        width: 30%;
+    }
+
+    #form {
+        float: right;
+        width: 70%;
+    }
+}
