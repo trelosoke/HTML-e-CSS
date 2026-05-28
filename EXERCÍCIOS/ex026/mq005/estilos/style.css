@@ -39,11 +39,18 @@ header h1 {
     padding: 10px;
     cursor: pointer;
     user-select: none;
+    transition: 100ms ease-out;
 }
 
 #burguer:hover {
     background-color: white;
     color: black;
+    transition: 100ms ease-out;
+}
+
+#burguer:active {
+    background-color: rgb(208, 208, 208);
+    transition: 40ms ease-out;
 }
 
 menu ul {
