@@ -72,3 +72,20 @@ main {
         width: 70%;
     }
 }
+
+@media screen and (min-width: 992px) {
+    #login {
+        width: 950px;
+    }
+
+    #image {
+        float: left;
+        height: 100%;
+        width: 50%;
+    }
+
+    #form {
+        float: right;
+        width: 50%;
+    }
+}
