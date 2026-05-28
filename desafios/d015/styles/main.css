@@ -40,7 +40,7 @@ main {
     height: 500px;
     border-radius: 20px;
     overflow: hidden;
-    
+
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.450);
 }
 
@@ -49,4 +49,9 @@ main {
     background: var(--mainLavander) url(../images/metal.jpg) no-repeat center center;
     background-size: cover;
     height: 200px;
+}
+
+#form {
+    display: block;
+    padding: 10px;
 }
