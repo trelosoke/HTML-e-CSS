@@ -159,6 +159,7 @@ main {
 
     #login {
         width: 80%;
+        height: 280px;
     }
 
     #image {
@@ -180,6 +181,7 @@ main {
 
     #login {
         width: 950px;
+        height: 350px;
     }
 
     #image {
@@ -198,6 +200,7 @@ main {
     }
 
     #form p {
-        font-size: 1.2em;
+        margin: 20px 0px;
+        font-size: 1em;
     }
 }
