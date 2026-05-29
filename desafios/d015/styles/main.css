@@ -61,7 +61,6 @@ main {
     height: 200px;
 }
 
-
 .campo {
     background-color: var(--mainLavander);
     height: 40px;
@@ -91,6 +90,10 @@ main {
     border-radius: 8px;
     padding: 4px;
     border: none;
+}
+
+.campo input:focus-within {
+    background-color: white;
 }
 
 #form {
