@@ -11,3 +11,9 @@
 body, html {
     height: 100vh;
 }
+
+main {
+    display: grid;
+    min-height: 100%;
+    grid-template: 100px 44px 1fr 44px / 2fr 1fr;
+}
