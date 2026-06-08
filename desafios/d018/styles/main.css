@@ -52,6 +52,7 @@ header {
     text-decoration: none;
     color: var(--reverse-text);
     font-weight: 600;
+    font-size: 1.3em;
     padding: 12px 15px;
     border-radius: 5px;
 
