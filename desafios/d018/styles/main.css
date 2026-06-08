@@ -112,6 +112,7 @@ main {
 
 .social a {
     color: var(--highlight);
+    transition: color 190ms ease-in;
 }
 
 .social a:hover {
