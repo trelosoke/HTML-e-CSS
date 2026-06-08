@@ -63,3 +63,10 @@ header {
     background-color: var(--revese-highlight);
     color: var(--highlight);
 }
+
+main {
+    display: grid;
+    grid-template-columns: 0.5fr 9fr 0.5fr;
+    gap: 20px;
+    margin-top: 20px;
+}
