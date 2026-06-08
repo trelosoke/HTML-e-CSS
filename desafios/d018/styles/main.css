@@ -40,3 +40,10 @@ header {
     color: var(--text);
     padding: 10px;
 }
+
+.menu ul{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    list-style: none;
+}
