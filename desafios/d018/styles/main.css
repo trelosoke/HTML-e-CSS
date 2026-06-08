@@ -34,3 +34,9 @@ body, html {
     line-height: 1.5em;
     background-color: var(--main-backgroud);
 }
+
+header {
+    background-color: var(--highlight);
+    color: var(--text);
+    padding: 10px;
+}
