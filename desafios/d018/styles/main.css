@@ -77,3 +77,19 @@ main {
     border-radius: 8px;
     grid-column: 2;
 }
+
+.photo {
+    width: 200px;
+    
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    overflow: hidden;
+    
+    border-radius: 50%;
+    border: 5px solid var(--card-background);
+    outline: 5px solid var(--highlight);
+    
+    display: block;
+    margin: auto;
+    margin-bottom: 16px;
+}
