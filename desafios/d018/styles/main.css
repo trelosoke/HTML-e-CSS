@@ -9,6 +9,15 @@
   --fundo-card
 */
 
+:root {
+    --main-backgroud: #f5f5f5;
+    --text: #222222;
+    --reverse-text: #ffffff;
+    --highlight: #0077ff;
+    --revese-highlight: #66bbff;
+    --card-background: #ffffff; 
+}
+
 *,
 *::before,
 *::after {
