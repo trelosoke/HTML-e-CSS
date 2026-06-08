@@ -109,3 +109,11 @@ main {
     gap: 1em;
     margin-top: 16px;
 }
+
+.social a {
+    color: var(--highlight);
+}
+
+.social a:hover {
+    color: var(--revese-highlight);
+}
