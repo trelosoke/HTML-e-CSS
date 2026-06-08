@@ -28,4 +28,9 @@
 
 body, html {
     min-height: 100vh;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--text);
+    line-height: 1.5em;
+    background-color: var(--main-backgroud);
 }
