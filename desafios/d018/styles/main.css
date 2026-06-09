@@ -157,6 +157,7 @@ article h2 {
     display: grid;
     grid-template-columns: 1fr;
     margin-top: 20px;
+    gap: 15px;
 }
 
 .info {
