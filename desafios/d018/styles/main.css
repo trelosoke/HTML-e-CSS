@@ -193,7 +193,7 @@ article h2 {
 .education-container {
     display: flex;
     flex-direction: column-reverse;
-    gap: 20px;
+    gap: 16px;
 }
 
 .education-entry {
@@ -201,6 +201,13 @@ article h2 {
     border-radius: 8px;
     border-left: 5px solid var(--revese-highlight);
     padding-left: 12px;
+    transition: border-left-width 130ms ease-out;
+}
+
+.education-entry:hover {
+    border-left-width: 10px;
+    border-color: var(--highlight);
+    cursor: default;
 }
 
 @media screen and (min-width: 768px) {
