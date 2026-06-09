@@ -130,7 +130,7 @@ article {
 
 article h2 {
     color: var(--highlight);
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .details {
@@ -156,7 +156,6 @@ article h2 {
 .skill-container {
     display: grid;
     grid-template-columns: 1fr;
-    margin-top: 20px;
     gap: 15px;
 }
 
