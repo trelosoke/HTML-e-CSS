@@ -152,3 +152,8 @@ article h2 {
     margin: auto;
     aspect-ratio: 16 / 9;
 }
+
+.skill-container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
