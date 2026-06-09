@@ -120,3 +120,7 @@ main {
 .social a:hover {
     color: var(--revese-highlight);
 }
+
+.details {
+    grid-column: 2;
+}
