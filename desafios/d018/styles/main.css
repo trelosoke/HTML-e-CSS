@@ -210,6 +210,17 @@ article h2 {
     cursor: default;
 }
 
+.duration {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: var(--text);
+}
+
+.institution {
+    font-size: 1.1em;
+    color: var(--revese-highlight);
+}
+
 @media screen and (min-width: 768px) {
     .skill-container {
         grid-template-columns: 1fr 1fr;
