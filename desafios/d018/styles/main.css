@@ -189,3 +189,12 @@ article h2 {
     background-color: var(--revese-highlight);
     border-radius: 1px;
 }
+
+@media screen and (min-width: 768px) {
+    .skill-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, auto);
+
+        grid-auto-flow: column;
+    }
+}
