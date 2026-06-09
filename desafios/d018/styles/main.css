@@ -157,3 +157,19 @@ article h2 {
     display: grid;
     grid-template-columns: 1fr;
 }
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name {
+    font-weight: bold;
+    color: var(--text);
+}
+
+.percent {
+    font-weight: bold;
+    color: var(--highlight);
+}
