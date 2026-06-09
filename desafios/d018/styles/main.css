@@ -180,9 +180,11 @@ article h2 {
     height: 8px;
     background-color: var(--main-backgroud);
     border-radius: 4px;
+    overflow: hidden;
 }
 
 .progress {
     height: 100%;
     background-color: var(--revese-highlight);
+    border-radius: 1px;
 }
