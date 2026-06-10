@@ -51,6 +51,7 @@ header {
     font-weight: 600;
     font-size: 1.6em;
     line-height: 1;
+    vertical-align: middle;
     padding: 10px 12px;
     border-radius: 5px;
 
