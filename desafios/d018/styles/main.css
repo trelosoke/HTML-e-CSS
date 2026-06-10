@@ -302,7 +302,8 @@ footer a:hover {
         gap: 20px;
     }
 
-    .menu a {
+    .menu a,
+    #theme-button {
         padding: 6px 8px;
     }
     
@@ -314,7 +315,7 @@ footer a:hover {
         grid-column: 2 / 3;
         height: fit-content;
         position: sticky;
-        top: 66.776px;
+        top: 77.59px;
     }
 
     .social {
