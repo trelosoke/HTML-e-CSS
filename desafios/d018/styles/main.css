@@ -293,6 +293,9 @@ footer a:hover {
 
     .card {
         grid-column: 2 / 3;
+        height: fit-content;
+        position: sticky;
+        top: 66.776px;
     }
 
     .details {
