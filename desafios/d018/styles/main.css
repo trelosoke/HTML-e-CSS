@@ -298,6 +298,10 @@ footer a:hover {
         top: 66.776px;
     }
 
+    .social {
+        gap: 0.2em;
+    }
+
     .details {
         grid-column: 3 / 4;
     }
