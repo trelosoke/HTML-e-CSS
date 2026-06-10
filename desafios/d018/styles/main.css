@@ -226,6 +226,23 @@ article h2 {
     gap: 20px;
 }
 
+.project-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: var(--main-backgroud);
+    padding: 10px;
+    border-radius: 8px;
+    border-left: 5px solid var(--revese-highlight);
+    transition: border-left-width 130ms ease-out;
+}
+
+.project-entry:hover {
+    border-color: var(--highlight);
+    border-left-width: 10px;
+    cursor: default;
+}
+
 /* Tablet Breakpoint */
 @media screen and (min-width: 768px) {
     .skill-container {
