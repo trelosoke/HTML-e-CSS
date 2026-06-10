@@ -60,7 +60,6 @@ header {
 }
 
 /* Main Content */
-
 main {
     display: grid;
     grid-template-columns: 0.5fr 9fr 0.5fr;
@@ -219,6 +218,12 @@ article h2 {
 .institution {
     font-size: 1.1em;
     color: var(--revese-highlight);
+}
+
+.project-container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
 }
 
 /* Tablet Breakpoint */
