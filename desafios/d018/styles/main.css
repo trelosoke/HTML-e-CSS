@@ -273,6 +273,19 @@ footer a:hover {
 
 /* Tablet Breakpoint */
 @media screen and (min-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    .menu ul {
+        justify-content: flex-end;
+        gap: 20px;
+    }
+
+    .menu a {
+        padding: 6px 8px;
+    }
+    
     .skill-container {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: repeat(4, auto);
