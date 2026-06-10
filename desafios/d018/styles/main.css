@@ -251,6 +251,23 @@ article h2 {
     border-radius: 8px;
 }
 
+footer {
+    background-color: var(--highlight);
+    color: var(--reverse-text);
+    text-align: center;
+    padding: 20px;
+}
+
+footer a {
+    color: var(--reverse-text);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: var(--revese-highlight);
+}
+
 /* Tablet Breakpoint */
 @media screen and (min-width: 768px) {
     .skill-container {
