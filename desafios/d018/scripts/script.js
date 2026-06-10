@@ -16,3 +16,16 @@ tocElements.forEach(function(link) {
         }
     })
 });
+
+const themeButton = document.getElementById('theme-button');
+const bodyElem = document.body;
+
+themeButton.addEventListener('click', () => {
+    const toggleTheme = bodyElem.classList.toggle('dark-theme');
+   
+    if (toggleTheme) {
+        themeButton.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    } else {
+        themeButton.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    }
+});
