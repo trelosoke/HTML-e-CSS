@@ -29,6 +29,9 @@ body, html {
 
 /* Header */
 header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
     background-color: var(--highlight);
     color: var(--text);
     padding: 20px;
