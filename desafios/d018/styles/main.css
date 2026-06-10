@@ -243,6 +243,14 @@ article h2 {
     cursor: default;
 }
 
+.project-photo {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
 /* Tablet Breakpoint */
 @media screen and (min-width: 768px) {
     .skill-container {
