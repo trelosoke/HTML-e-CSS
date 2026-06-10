@@ -287,6 +287,18 @@ footer a:hover {
         padding: 6px 8px;
     }
     
+    main {
+        grid-template-columns: auto 300px 1fr auto;
+    }
+
+    .card {
+        grid-column: 2 / 3;
+    }
+
+    .details {
+        grid-column: 3 / 4;
+    }
+
     .skill-container {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: repeat(4, auto);
