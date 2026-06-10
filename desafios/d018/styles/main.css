@@ -308,7 +308,7 @@ footer a:hover {
     }
     
     main {
-        grid-template-columns: auto 300px 1fr auto;
+        grid-template-columns: auto 1fr 4fr auto;
     }
 
     .card {
