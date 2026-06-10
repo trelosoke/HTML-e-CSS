@@ -259,4 +259,19 @@ article h2 {
 
         grid-auto-flow: column;
     }
+
+    .project-entry {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    .project-info {
+        max-width: 65%;
+    }
+
+    .project-photo {
+        aspect-ratio: 1 / 1;
+        max-width: 35%;
+        max-height: 200px;
+    }
 }
