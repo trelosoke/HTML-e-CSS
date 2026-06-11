@@ -1,5 +1,6 @@
 const tocElements = document.querySelectorAll('.menu ul a[href^="#"]');
 
+//Smooth scroll logic with top offset when clicking, for each navigation menu item 
 tocElements.forEach(function(link) {
     link.addEventListener('click', function(elem) {
         elem.preventDefault();
@@ -20,6 +21,7 @@ tocElements.forEach(function(link) {
 const themeButton = document.getElementById('theme-button');
 const bodyElem = document.body;
 
+//Dark theme implementation when clicking
 themeButton.addEventListener('click', () => {
     const toggleTheme = bodyElem.classList.toggle('dark-theme');
    

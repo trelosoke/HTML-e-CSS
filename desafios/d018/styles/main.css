@@ -247,6 +247,7 @@ article h2 {
     margin-right: 30px;
 }
 
+/* Main Content - Details Section - Project Article*/
 .project-container {
     display: flex;
     flex-direction: column-reverse;
@@ -278,6 +279,8 @@ article h2 {
     border-radius: 8px;
 }
 
+/* Footer */
+
 footer {
     background-color: var(--highlight);
     color: var(--reverse-text);
@@ -297,6 +300,7 @@ footer a:hover {
 
 /* Tablet Breakpoint */
 @media screen and (min-width: 768px) {
+    /* Header */
     header {
         padding: 10px;
     }
@@ -311,10 +315,12 @@ footer a:hover {
         padding: 6px 8px;
     }
     
+    /* Main content */
     main {
         grid-template-columns: auto 1fr 4fr auto;
     }
 
+    /* Main Content - Card Section */
     .card {
         grid-column: 2 / 3;
         height: fit-content;
@@ -326,10 +332,12 @@ footer a:hover {
         gap: 0.2em;
     }
 
+    /* Main Content - Details Section*/
     .details {
         grid-column: 3 / 4;
     }
 
+    /* Main Content - Details Section - Skills Article*/
     .skill-container {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: repeat(4, auto);
@@ -337,6 +345,7 @@ footer a:hover {
         grid-auto-flow: column;
     }
 
+    /* Main Content - Details Section - Project Article*/
     .project-entry {
         flex-direction: row-reverse;
         justify-content: space-between;
@@ -354,6 +363,7 @@ footer a:hover {
 }
 
 @media screen and (min-width: 1200px) {
+    /* Main Content - Details Section - Video Article*/
     .video-container {
         width: 70%;
     }
